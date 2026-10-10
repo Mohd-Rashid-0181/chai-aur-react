@@ -7,10 +7,12 @@ function Layout() {
   return (
     <>
     <Header/>
-    <Outlet />
+    <Outlet /> 
     <Footer />
     </>
   )
 }
 
 export default Layout
+
+// outlet is change the funcnality inside itself ac to page and header | footer remAINS SAMe

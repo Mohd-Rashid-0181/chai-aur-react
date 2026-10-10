@@ -12,6 +12,7 @@ import Contact from './components/Contact/Contact.jsx'
 import User from './components/User/User.jsx'
 import Github, {githubInfoLoader} from './components/Github/Github.jsx';
 
+
 // const router = createBrowserRouter([
 //   {
 //     path : '/',
@@ -51,8 +52,6 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router = {router}>
-      <App />
-    </RouterProvider>
+    <RouterProvider router = {router}/>
   </StrictMode>
 );
