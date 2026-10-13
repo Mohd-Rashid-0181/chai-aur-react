@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import { TodoProvider } from "./context";
 import TodoForm from "./components/TodoForm";
 import TodoItem from "./components/TodoItem";
@@ -61,7 +60,7 @@ function App() {
               {/*Loop and Add TodoItem here */}
               {todos.map( (todo) => (
                 <div key= {todo.id}
-                className=""
+                className="w-full"
                 >
                   <TodoItem todo={todo} />
                 </div>
