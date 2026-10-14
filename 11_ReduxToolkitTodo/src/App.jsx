@@ -1,17 +1,20 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import Todos from './components/Todos'
+import AddTodo from './components/AddTodo'
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
     <h1>Learn Redux Toolkit with Chai aur Code</h1>
+    <AddTodo />
+    <Todos />
     </>
   )
 }
 
 export default App
+
+
+//  today we design a project though the redux (redux is a core library who allows us to do the same work as context api but with advance optamization and also we react-redux through this we implement the redux into the react or like wire between these two.) 
