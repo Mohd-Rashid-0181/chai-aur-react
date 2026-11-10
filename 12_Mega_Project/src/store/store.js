@@ -1,12 +1,11 @@
-import {configureStore} from '@reduxjs/toolkit'
-import authService from '../appwrite/auth';
-import { login, logout } from './authSlice';
+import {configureStore} from '@reduxjs/toolkit';
+import authSlice from './authSlice';
 
 const store = configureStore({
-    reducer : {
-        login,
-        logout
+    reducer: {
+        auth : authSlice,
     }
 });
 
-export default store
+
+export default store;

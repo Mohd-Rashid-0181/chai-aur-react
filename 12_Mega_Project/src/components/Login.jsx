@@ -10,21 +10,22 @@ function Login() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {register, handleSubmit} = useForm()
-    const [error, sertError] = useState("")
+    const [error, setError] = useState("")
 
     const login = async(data) => {
-        sertError("")
+        setError("")
         try{
             const session = await authService.login(data)
             if(session){
                 const userData = await authService.getCurrentUser()
-                if(userData) dispatch(authLogin(userData))
+                if(userData) dispatch(authLogin({userData}))
                 navigate("/")
             }
         } catch (error) {
-            sertError(error.message)
+            setError(error.message)
         }
     }
+    
   return (
     <div
     className='flex items-center justify-center w-full'
@@ -55,8 +56,9 @@ function Login() {
                 {...register("email", {
                     required: true,
                     validate: {
-                        matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                        "Email address must be a valid address",
+                    matchPattern: (value) =>
+                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ||
+                        "Email address must be valid"
                     }
                 })}
                 />
