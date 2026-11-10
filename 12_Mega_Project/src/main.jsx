@@ -1,14 +1,82 @@
-import React,{ StrictMode } from 'react'
+import {RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { AuthLayout, Signup, Login } from './components/index.js'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import AllPosts from "./pages/AllPosts";
+import React,{ StrictMode } from 'react'
+import EditPost from "./pages/EditPost";
+import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import  store  from './store/store.js'
+import AddPost from "./pages/AddPost";
+import Home from './pages/Home.jsx'
+import Post from "./pages/Post";
+import App from './App.jsx'
+import './index.css'
+
+const router = createBrowserRouter([
+  {
+    path : '/',
+    element : <App/>,
+    children:[
+      {
+        path:'/',
+        element:<Home />
+      },
+      {
+        path: '/login',
+        element: (
+          <AuthLayout authentication={false}>
+            <Login />
+          </AuthLayout>
+        )
+      },
+      {
+        path: '/signup',
+        element: (
+          <AuthLayout authentication={false}>
+            <Signup />
+          </AuthLayout>
+        )
+      },
+      {
+        path: '/all-posts',
+        element: (
+          <AuthLayout authentication>
+            {" "}
+            <AllPosts />
+          </AuthLayout>
+        )
+      },
+      {
+        path: '/add-posts',
+        element: (
+          <AuthLayout authentication>
+            {" "}
+            <AddPost />
+          </AuthLayout>
+        )
+      },
+      {
+        path: '/edit-post/:slug',
+        element: (
+          <AuthLayout authentication>
+            {" "}
+            <EditPost />
+          </AuthLayout>
+        )
+      },
+      {
+        path: "/post/:slug",
+        element: <Post />
+      }
+    ]
+  }
+])
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store = {store}>
-      <App />
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
 )

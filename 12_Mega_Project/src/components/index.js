@@ -1,4 +1,4 @@
-import Container from './container/Container.jsx'
+import Container from './Container/Container.jsx'
 import PostForm from './Post-Form/PostForm.jsx'
 import LogoutBtn from './Header/LogoutBtn.jsx'
 import Footer from './Footer//Footer.jsx'
@@ -14,19 +14,19 @@ import Logo from './Logo.jsx'
 import RTE from './RTE.jsx'
 
 export {
-    Header,
-    Footer,
     Container,
-    Logo,
+    Footer,
+    Header,
     LogoutBtn,
-    AuthLayout,
-    Signup,
-    Select,
-    RTE,
     PostForm,
-    PostCard,
-    Login,
+    AuthLayout,
     Button,
-    Input
+    Input,
+    Login,
+    Logo,
+    PostCard,
+    RTE,
+    Select,
+    Signup,
 
 }
